@@ -29,9 +29,14 @@ export default function Body(){
         setProducto([]);
     }
 
+    function update(nuevoTexto, id){
+        productos[id] = nuevoTexto;
+        setProducto([...productos]);
+    }
+
     //mostrar la lista mapeada
     var lista = productos.map((producto, index) =>(
-        <Item key={index} id={index} nombre={producto} onDelete = {(()=>deleteItem(index))}></Item>
+        <Item key={index} nombre={producto} onDelete = {(()=>deleteItem(index))} onCambioTexto={(nombre)=>update(nombre, index)}></Item>
     ))
     return(
         <>
