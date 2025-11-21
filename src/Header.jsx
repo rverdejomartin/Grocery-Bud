@@ -1,8 +1,9 @@
+import './miEstilosCSS/header.css'
+
 export default function Header({title}){
-    let estilo = {color: "lightblue"};
     return(
         <>
-            <h1 style={estilo}>{title}</h1>
+            <h1 className="titulo">{title}</h1>
         </>
     )
 }

@@ -1,5 +1,7 @@
+import './miEstilosCSS/estilosClear.css';
+
 export default function ClearItems({onDelete}){
     return(
-        <button onClick={onDelete}>Clear Items</button>
+        <button onClick={onDelete} className="clear">Clear Items</button>
     )
 }

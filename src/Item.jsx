@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './miEstilosCSS/estilosItems.css';
 
 export default function Item({nombre, onDelete, onCambioTexto}){
     const [editar, setModoEdicion] = useState(false);
@@ -19,12 +20,12 @@ export default function Item({nombre, onDelete, onCambioTexto}){
     }
     if(!editar){
         jsxResultado = <>
-            <li>{nombre} <button onClick={entraEdicion}>Editar</button> <button onClick={onDelete}>Eliminar</button></li>
+            <li className="lista">{nombre} <button onClick={entraEdicion} className="editar"></button> <button onClick={onDelete} className="eliminar"></button></li>
         </>;
     } else{
         jsxResultado = <>
-            <li><input type="text" value={nombreEditado} onChange={(e)=> setNombre(e.target.value)}/> <button onClick={avisarGuardado}>Guardar cambios</button>
-            <button onClick={cancelar}>Cancelar</button>
+            <li className="lista"><input type="text" value={nombreEditado} onChange={(e)=> setNombre(e.target.value)}/> <button onClick={avisarGuardado} className="guardarCambios"></button>
+            <button onClick={cancelar} className="cancelar"></button>
             </li>
         </>;
     }

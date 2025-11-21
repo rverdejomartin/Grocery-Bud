@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Item from "./Item";
 import ClearItems from "./ClearItems";
+import './miEstilosCSS/body.css'
 
 export default function Body(){
     const [productos, setProducto] = useState([]);
@@ -42,7 +43,7 @@ export default function Body(){
         <>
             <div className="body">
                 <input type="text" placeholder="e.g. eggs"
-                value={contenidoInput} onChange={change}/>
+                value={contenidoInput} onChange={change} className="addItemInput"/>
                 <button onClick={pulseButton} className="add">Submit</button>
                 <ul>
                     {lista}

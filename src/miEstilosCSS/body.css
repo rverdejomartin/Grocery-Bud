@@ -1,0 +1,22 @@
+.body {
+    max-width: 400px; 
+    margin: 0 auto; 
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 50px;
+    box-shadow: 2px 2px 2px 2px grey;
+    background-color: rgb(188, 238, 201);
+}
+
+.addItemInput{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 2px solid grey;
+}
+.add{
+    background-color: aqua;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 2px solid grey;
+    border-left: none; /*elimina el cachito de su izquierda para estetica*/
+}
