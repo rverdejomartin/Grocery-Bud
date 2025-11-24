@@ -12,12 +12,19 @@ export default function Body(){
     }
     //pulsa el boton, guarda el contenido en el array, y reinicia el input
     function pulseButton(){
-        setProducto(
+        var valido = false;
+        if(contenidoInput.trim() !== ''){
+            valido = true;
+        }
+
+        if(valido){
+            setProducto(
             [
                 ...productos, contenidoInput
             ]
         );
         setContenido("");
+        }
     }
 
     function deleteItem(index){
