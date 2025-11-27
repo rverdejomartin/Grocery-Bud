@@ -4,26 +4,21 @@ import ClearItems from "./ClearItems";
 import './miEstilosCSS/body.css'
 
 export default function Body(){
+
     const [productos, setProducto] = useState([]);
     const [contenidoInput, setContenido] = useState("");
-    //guardar el contenido del input
+
     function change(e){
         setContenido(e.target.value);
     }
-    //pulsa el boton, guarda el contenido en el array, y reinicia el input
+    
     function pulseButton(){
-        var valido = false;
         if(contenidoInput.trim() !== ''){
-            valido = true;
-        }
-
-        if(valido){
+            
             setProducto(
-            [
-                ...productos, contenidoInput
-            ]
-        );
-        setContenido("");
+                [...productos, contenidoInput] 
+            );
+            setContenido("");
         }
     }
 
@@ -38,14 +33,19 @@ export default function Body(){
     }
 
     function update(nuevoTexto, id){
-        productos[id] = nuevoTexto;
-        setProducto([...productos]);
+        const nuevoProducto = [...productos];
+        nuevoProducto[id] = nuevoTexto;
+        setProducto(nuevoProducto);
     }
 
-    //mostrar la lista mapeada
-    var lista = productos.map((producto, index) =>(
-        <Item key={index} nombre={producto} onDelete = {(()=>deleteItem(index))} onCambioTexto={(nombre)=>update(nombre, index)}></Item>
-    ))
+    const listaItems = productos.map((nombreProducto, index) => (
+        <Item
+            key={index}
+            nombre={nombreProducto} // Ahora es solo el string
+            onDelete={()=>deleteItem(index)}
+            onCambioTexto={(nuevoNombre) => update(nuevoNombre, index)}
+        />
+    ));
     return(
         <>
             <div className="body">
@@ -53,7 +53,7 @@ export default function Body(){
                 value={contenidoInput} onChange={change} className="addItemInput"/>
                 <button onClick={pulseButton} className="add">Submit</button>
                 <ul>
-                    {lista}
+                    {listaItems}
                 </ul>
                 <ClearItems onDelete={deleteAll}></ClearItems>
             </div>

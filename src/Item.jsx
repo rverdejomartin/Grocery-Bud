@@ -20,7 +20,7 @@ export default function Item({nombre, onDelete, onCambioTexto}){
     }
     if(!editar){
         jsxResultado = <>
-            <li className="lista">{nombre} <button onClick={entraEdicion} className="editar"></button> <button onClick={onDelete} className="eliminar"></button></li>
+            <li className="lista">{nombre}<button onClick={entraEdicion} className="editar"></button> <button onClick={onDelete} className="eliminar"></button></li>
         </>;
     } else{
         jsxResultado = <>
